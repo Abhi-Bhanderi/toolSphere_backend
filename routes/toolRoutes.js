@@ -22,9 +22,9 @@ import {
 } from '../controller/toolController.js'
 
 // -> Everyone can access this routes -
-router.route('/all').get(isUserLogged, pagination, getAllTools)
+router.route('/all').get(isUserLogged, getAllTools)
 router.route('/tool/:id').get(isUserLogged, getSingleTool)
-router.route('/filtered/').get(isUserLogged, pagination, getDataWithParams)
+router.route('/filter/').get(isUserLogged, pagination, getDataWithParams)
 router.route('/related/').get(getRelatedData)
 
 // -> Only admin can access this routes
@@ -35,17 +35,21 @@ router.route('/update/:id').put(protect, restrictTo('admin'), updateTool)
 router.route('/delete/:id').delete(protect, restrictTo('admin'), deleteTool)
 
 // -> For hashtags
-router.route('/hashtag/all').get(protect, restrictTo('admin'), getAllHashtags)
+router.route('/hashtag/all').get(getAllHashtags)
 router
-   .route('/create/hashtag/')
+   .route('/hashtag/create')
    .post(protect, restrictTo('admin'), createHashtag)
-router.route('/update/:id').put(protect, restrictTo('admin'), updateHashtag)
-router.route('/delete/:id').put(protect, restrictTo('admin'), deleteHashtag)
+router
+   .route('/hashtag/update/:id')
+   .put(protect, restrictTo('admin'), updateHashtag)
+router
+   .route('/hashtag/delete/:id')
+   .put(protect, restrictTo('admin'), deleteHashtag)
 
 // -> Both user and admin can access this routes
-router.route('/add/user/favorite/:toolID').post(protect, addToFavorites)
-router.route('/get/user/favorite/all').get(protect, getFavorites)
-router.route('/remove/user/favorite/:toolID').delete(protect, removeFavorites)
-router.route('/remove/user/favorites/all').delete(protect, removeAllFavorites)
+router.route('/add/favorite/:toolID').post(protect, addToFavorites)
+router.route('/get/favorite/all').get(protect, getFavorites)
+router.route('/remove/favorite/:toolID').delete(protect, removeFavorites)
+router.route('/remove/favorites/all').delete(protect, removeAllFavorites)
 
 export default router

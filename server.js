@@ -53,7 +53,7 @@ app.use(xss())
 // Prevent Parameter Pollution
 app.use(hpp())
 
-app.use('/api/data', toolRoutes)
+app.use('/api/tools', toolRoutes)
 app.use('/api/reviews', reviewRoutes)
 app.use('/api/auth', authRoutes)
 

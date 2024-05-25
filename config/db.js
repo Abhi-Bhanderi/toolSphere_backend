@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-
+//  `mongodb+srv://aidictapp:${Mongodb_Pass}@aidict.xc7thkg.mongodb.net/Data?retryWrites=true&w=majority`,
 const connectDB = async (Mongodb_Pass) => {
    try {
       mongoose.set('strictQuery', true)
