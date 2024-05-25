@@ -4,7 +4,7 @@ const connectDB = async (Mongodb_Pass) => {
    try {
       mongoose.set('strictQuery', true)
       const conn = await mongoose.connect(
-         `mongodb+srv://aidictapp:${Mongodb_Pass}@aidict.xc7thkg.mongodb.net/Data?retryWrites=true&w=majority`,
+         `mongodb+srv://abhibhanderi:${Mongodb_Pass}@toolspherecluster0.wh8rfuj.mongodb.net/data?retryWrites=true&w=majority&appName=ToolSphereCluster0`,
          {
             useNewUrlParser: true,
          }

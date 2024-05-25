@@ -66,5 +66,5 @@ app.all('*', (req, res, next) => {
 app.use(globalErrorHandler)
 
 // Starting the server
-const port = process.env.PORT || 4100
+const port = 8080 || process.env.PORT
 startServer(app, port)
