@@ -29,7 +29,14 @@ if (process.env.NODE_ENV === 'development') {
    app.use(morgan('dev'))
 }
 // For Cross site sharing
-app.use(cors())
+// Use the CORS middleware with the custom options
+app.use(
+   cors({
+      origin: 'http://localhost:3000',
+      credentials: true,
+   })
+)
+
 
 // For Limiting request per each IP
 const RateLimiter = rateLimit({
